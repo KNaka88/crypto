@@ -88,7 +88,6 @@ describe('Blockchain', () => {
             });
 
             it('logs an error', () => {
-                console.debug('This console should come after replaceChain()');
                 expect(errorMock).toHaveBeenCalled();
             });
         });
