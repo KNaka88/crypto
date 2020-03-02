@@ -21,6 +21,7 @@ class Blockchain {
         }
 
         if (!Blockchain.isValidChain(chain)) {
+            console.debug('This console should come first');
             console.error('The incoming chain must be valid');
             return;
         }
