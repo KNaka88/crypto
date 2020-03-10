@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "start": "node index.js",
-    "dev": "docker-compose up -d && nodemon index.js",
+    "dev": "nodemon index.js",
     "start-redis": "docker-compose up -d"
   },
   "keywords": [],
