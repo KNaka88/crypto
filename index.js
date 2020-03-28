@@ -1,5 +1,6 @@
 const express = require('express');
 const request = require('request');
+const path = require('path');
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const PubSub = require('./app/pubsub');
@@ -21,6 +22,7 @@ const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 setTimeout(() => pubsub.broadcastChain(), 1000);
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client/dist'))); // Used for serving JavaScript
 
 app.get('/api/blocks', (req, res) => {
     res.json(blockchain.chain);
@@ -80,6 +82,10 @@ app.get('/api/wallet-info', (req, res) => {
         address,
         balance: Wallet.calculateBalance({ chain: blockchain.chain, address: wallet.publicKey })    
     });
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/dist/index.html'));
 });
 
 const syncWithRootState = () => {
