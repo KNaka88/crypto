@@ -19,6 +19,7 @@ class App extends Component {
                 <div>Welcome to the blockchain...</div>
                 <br/>
                 <div><Link to="/blocks">Blocks</Link></div>
+                <div><Link to="/conduct-transaction">Conduct a Transaction</Link></div>
                 <div className="WalletInfo">
                     <div>Address: {address}</div>
                     <div>Balance: {balance}</div>
