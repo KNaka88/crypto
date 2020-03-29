@@ -7,8 +7,7 @@ class Blocks extends Component {
 
     async componentDidMount() {
         const response = await fetch('http://localhost:3000/api/blocks');
-        const json = await response.json();
-        this.setState({ blocks: json });
+        this.setState({ blocks: await response.json() });
     }
     
     renderBlocks() {
