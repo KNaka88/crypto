@@ -6,7 +6,7 @@ class App extends Component {
     state = { walletInfo: { } };
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:3000/api/wallet-info');
+        const response = await fetch(`${document.location.origin}/api/wallet-info`);
         this.setState({ walletInfo: await response.json() });
     }
     render() {
